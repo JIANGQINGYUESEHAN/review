@@ -1,12 +1,14 @@
 
 #include "Delay.h"
+#include "Drive_BaseTick.h"
+#include "Drive_GeneralTick.h"
+#include "Drive_GeneralTickTest.h"
 #include "Drive_KEY.h"
 #include "Drive_USART.h"
 #include "Drive_USART_Interrupt.h"
 #include "Inf_E2PROM.h"
 #include "led.h"
 
-#include "stm32f10x.h"
 // int main() {
 //     Driver_LED_Init();
 //     uint8_t dir = 1;
@@ -40,42 +42,90 @@
 //         /* code */
 //     }
 // }
-
 // int main() {
 //     Drive_USART_Interrupt_Init();
-
 //     while (1) {
 //         // uint8_t str[] = "hello,world";
 //         // Drive_USART_Sendstr(str, strlen((char *)str));
 //         // Delay_ms(500);
-
 //         // uint8_t ch = Driver_USART1_ReceiveChar();
 //         // Drive_USART_Sendchar(ch);
 //         // Delay_ms(500);
 //     }
 // }
 
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Inf_W24C02_Init();
+//     Inf_W24C02_WriteByte(0x01, 'a');
+//     uint8_t data = Inf_W24C02_ReadByte(0x01);
+//     printf("deBug1\r\n");
+//     printf("%c\r\n", data);
+//     printf("deBug2\r\n");
+//     Inf_W24C02_WriteBytes(0x00, "123456", 6);
+//     uint8_t buff[100] = {0};
+//     Inf_W24C02_ReadBytes(0x00, buff, 6);
+//     printf("%s\r\n", buff);
+//     // 将buffer置空
+//     memset(buff, 0, sizeof(buff));
+//     Inf_W24C02_WriteBytes(0x00, "0123456789abcdefghijk", 21);
+//     Inf_W24C02_ReadBytes(0x00, buff, 21);
+//     printf("%s\r\n", buff);
+//     while (1) {
+//     }
+// }
+
+// int main() {
+//     Driver_LED_Init();
+//     Drive_USART_Interrupt_Init();
+//     printf("开始测验");
+//     Drive_BaseTick_Init();
+//     while (1) {
+//         /* code */
+//     }
+// }
+
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Driver_LED_Init();
+//     printf("开始测验");
+//     Drive_GeneralTick_Init();
+//     Drive_GeneralTick_Start();
+//     uint8_t dutyCycle = 0;
+//     uint8_t dir = 0; // 变大
+//     Drive_GeneralTick_AdjustDutyCycle(dutyCycle);
+//     while (1) {
+//         if (dir == 0) {
+//             dutyCycle += 1;
+//             if (dutyCycle >= 99) {
+//                 dir = 1;
+//             }
+//         } else {
+//             dutyCycle -= 1;
+//             if (dutyCycle <= 1) {
+//                 dir = 0;
+//             }
+//         }
+//         Drive_GeneralTick_AdjustDutyCycle(dutyCycle);
+//         Delay_ms(10);
+//     }
+// }
+
+double ta, f;
 int main() {
-
     Drive_USART_Interrupt_Init();
-    Inf_W24C02_Init();
+    Drive_GeneralTick_Init();
+    Drive_GeneralTickTestTest_Init();
 
-    Inf_W24C02_WriteByte(0x01, 'a');
-    uint8_t data = Inf_W24C02_ReadByte(0x01);
-    printf("deBug1\r\n");
-    printf("%c\r\n", data);
-    printf("deBug2\r\n");
+    Drive_GeneralTickTestTest_Start();
+    Drive_GeneralTick_Start();
 
-    Inf_W24C02_WriteBytes(0x00, "123456", 6);
-
-    uint8_t buff[100] = {0};
-    Inf_W24C02_ReadBytes(0x00, buff, 6);
-    printf("%s\r\n", buff);
-    // 将buffer置空
-    memset(buff, 0, sizeof(buff));
-    Inf_W24C02_WriteBytes(0x00, "0123456789abcdefghijk", 21);
-    Inf_W24C02_ReadBytes(0x00, buff, 21);
-    printf("%s\r\n", buff);
     while (1) {
+        ta = Driver_GeneralTickTestTest_GetPWMCycle();
+        f = Driver_GeneralTickTestTest_GetPWMFreq();
+
+        printf("t=%.4fms, f=%.4fHz\r\n", ta, f);
+
+        Delay_ms(1000);
     }
 }

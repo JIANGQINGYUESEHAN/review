@@ -14,6 +14,9 @@
                 "d:\\window\\ALL_Register\\Inf\\E2PROM",
                 "d:\\window\\ALL_Register\\Inf\\E2PROM_HardWare",
                 "d:\\window\\ALL_Register\\Drive\\Drive_I2C_HardWare",
+                "d:\\window\\ALL_Register\\Drive\\Drive_BaseTick",
+                "d:\\window\\ALL_Register\\Drive\\Drive_GeneralTick",
+                "d:\\window\\ALL_Register\\Drive\\Drive_GeneralTickTest",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw"
             ],

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare</IncludePath>
+              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -538,6 +538,51 @@
               <FileName>Drive_I2C_HardWare.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Drive_I2C_HardWare\Drive_I2C_HardWare.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Base_Tick</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_BaseTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_BaseTick\Drive_BaseTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_BaseTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_BaseTick\Drive_BaseTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>General_Tick</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_GeneralTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_GeneralTick\Drive_GeneralTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_GeneralTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_GeneralTick\Drive_GeneralTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>GeneralTickTest</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_GeneralTickTest.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_GeneralTickTest.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h</FilePath>
             </File>
           </Files>
         </Group>
