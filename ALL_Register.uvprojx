@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest</IncludePath>
+              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_DMA</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -583,6 +583,51 @@
               <FileName>Drive_GeneralTickTest.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_MesureTick</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_MesureTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_MesureTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_SenierTick</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_SenierTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_SenierTick\Drive_SenierTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_SenierTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_SenierTick\Drive_SenierTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_DMA</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_DMA\Drive_DMA.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_DMA\Drive_DMA.h</FilePath>
             </File>
           </Files>
         </Group>

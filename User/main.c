@@ -1,14 +1,16 @@
 
 #include "Delay.h"
 #include "Drive_BaseTick.h"
+#include "Drive_DMA.h"
 #include "Drive_GeneralTick.h"
 #include "Drive_GeneralTickTest.h"
 #include "Drive_KEY.h"
+#include "Drive_MesureTick.h"
+#include "Drive_SenierTick.h"
 #include "Drive_USART.h"
 #include "Drive_USART_Interrupt.h"
 #include "Inf_E2PROM.h"
 #include "led.h"
-
 // int main() {
 //     Driver_LED_Init();
 //     uint8_t dir = 1;
@@ -111,21 +113,71 @@
 //     }
 // }
 
-double ta, f;
-int main() {
-    Drive_USART_Interrupt_Init();
-    Drive_GeneralTick_Init();
-    Drive_GeneralTickTestTest_Init();
+// double ta, f;
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Drive_GeneralTick_Init();
+//     Drive_GeneralTickTestTest_Init();
 
-    Drive_GeneralTickTestTest_Start();
-    Drive_GeneralTick_Start();
+//     Drive_GeneralTickTestTest_Start();
+//     Drive_GeneralTick_Start();
+
+//     while (1) {
+//         ta = Driver_GeneralTickTestTest_GetPWMCycle();
+//         f = Driver_GeneralTickTestTest_GetPWMFreq();
+
+//         printf("t=%.4fms, f=%.4fHz\r\n", ta, f);
+
+//         Delay_ms(1000);
+//     }
+// }
+
+// double ta, f, dutyCycle;
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Drive_GeneralTick_Init();
+//     Drive_GeneralTick_Start();
+
+//     Drive_MesureTick_Init();
+//     Drive_MesureTick_Start();
+
+//     while (1) {
+//         ta = Drive_MesureTick_GetDutyCycle();
+//         f = Drive_MesureTick_GetPWMFreq();
+//         dutyCycle = Drive_MesureTick_GetDutyCycle();
+//         printf("t=%.4fms, f=%.4fHz,dutyCycle=%.2f%\r\n", ta, f,
+//                dutyCycle * 100);
+
+//         Delay_ms(1000);
+//     }
+// }
+
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     printf("高级定时器实验开始...\r\n");
+
+//     Drive_SenierTick_Init();
+//     Drive_SenierTick_Start();
+//     while (1) {
+//     }
+// }
+
+const uint8_t src[] = {10, 20, 30, 40};
+uint8_t des[4] = {0};
+extern uint8_t isTransmitFinished;
+int main() {
+
+    Drive_USART_Interrupt_Init();
+    Drive_DMA_Init();
+    printf("DMA实验: ROM->RAM...\r\n");
+    printf("src=%p, des=%p\r\n", src, des);
+
+    Drive_DMA_TransmitData((uint32_t)&src[0], (uint32_t)&des[0], 8);
+    while (isTransmitFinished == 0)
+        ;
+
+    printf("%d, %d, %d, %d\r\n", des[0], des[1], des[2], des[3]);
 
     while (1) {
-        ta = Driver_GeneralTickTestTest_GetPWMCycle();
-        f = Driver_GeneralTickTestTest_GetPWMFreq();
-
-        printf("t=%.4fms, f=%.4fHz\r\n", ta, f);
-
-        Delay_ms(1000);
     }
 }

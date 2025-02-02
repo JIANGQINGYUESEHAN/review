@@ -8,9 +8,12 @@
 .\objects\main.o: .\Drive\Drive_USART_Interrupt\Drive_USART_Interrupt.h
 .\objects\main.o: C:\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\objects\main.o: .\Drive\led\led.h
+.\objects\main.o: .\Drive\Drive_DMA\Drive_DMA.h
 .\objects\main.o: .\Drive\Drive_GeneralTick\Drive_GeneralTick.h
 .\objects\main.o: .\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h
 .\objects\main.o: .\Drive\Drive_KEY\Drive_KEY.h
+.\objects\main.o: .\Drive\Drive_MesureTick\Drive_MesureTick.h
+.\objects\main.o: .\Drive\Drive_SenierTick\Drive_SenierTick.h
 .\objects\main.o: .\Drive\Drive_USART\Drive_USART.h
 .\objects\main.o: .\Inf\E2PROM\Inf_E2PROM.h
 .\objects\main.o: .\Drive\Drive_I2C\Drive_I2C.h
