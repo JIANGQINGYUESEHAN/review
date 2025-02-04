@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_DMA</IncludePath>
+              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_DMATOUATR;.\Drive\Drive_DMA;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_ADC;.\Drive\Drive_ADC_DMA;.\Drive\Drive_SPI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -557,6 +557,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Mesure_Tick</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_MesureTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_MesureTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>General_Tick</GroupName>
           <Files>
             <File>
@@ -572,37 +587,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>GeneralTickTest</GroupName>
-          <Files>
-            <File>
-              <FileName>Drive_GeneralTickTest.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.c</FilePath>
-            </File>
-            <File>
-              <FileName>Drive_GeneralTickTest.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Drive_MesureTick</GroupName>
-          <Files>
-            <File>
-              <FileName>Drive_MesureTick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.c</FilePath>
-            </File>
-            <File>
-              <FileName>Drive_MesureTick.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drive\Drive_MesureTick\Drive_MesureTick.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Drive_SenierTick</GroupName>
+          <GroupName>SenierTick</GroupName>
           <Files>
             <File>
               <FileName>Drive_SenierTick.c</FileName>
@@ -628,6 +613,66 @@
               <FileName>Drive_DMA.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Drive_DMA\Drive_DMA.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_DMATOUATR</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_DMATOUATR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_DMATOUATR\Drive_DMATOUATR.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_DMATOUATR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_DMATOUATR\Drive_DMATOUATR.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_ADC</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_ADC\Drive_ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_ADC\Drive_ADC.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_ADC_DMA</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_ADC_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_ADC_DMA\Drive_ADC_DMA.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_ADC_DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_ADC_DMA\Drive_ADC_DMA.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_SPI</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_SPI\Drive_SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_SPI\Drive_SPI.h</FilePath>
             </File>
           </Files>
         </Group>

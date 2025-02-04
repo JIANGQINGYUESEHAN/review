@@ -13,11 +13,13 @@
 ".\objects\inf_e2prom_hardware.o"
 ".\objects\drive_i2c_hardware.o"
 ".\objects\drive_basetick.o"
-".\objects\drive_generaltick.o"
-".\objects\drive_generalticktest.o"
 ".\objects\drive_mesuretick.o"
+".\objects\drive_generaltick.o"
 ".\objects\drive_seniertick.o"
 ".\objects\drive_dma.o"
+".\objects\drive_dmatouatr.o"
+".\objects\drive_adc.o"
+".\objects\drive_adc_dma.o"
 --library_type=microlib --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\01_LED_Register.map" -o .\Objects\01_LED_Register.axf

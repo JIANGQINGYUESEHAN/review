@@ -4,11 +4,14 @@
 .\objects\main.o: .\Start\core_cm3.h
 .\objects\main.o: C:\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h
 .\objects\main.o: .\Start\system_stm32f10x.h
+.\objects\main.o: .\Drive\Drive_ADC\Drive_ADC.h
+.\objects\main.o: .\Drive\Drive_ADC_DMA\Drive_ADC_DMA.h
 .\objects\main.o: .\Drive\Drive_BaseTick\Drive_BaseTick.h
 .\objects\main.o: .\Drive\Drive_USART_Interrupt\Drive_USART_Interrupt.h
 .\objects\main.o: C:\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
 .\objects\main.o: .\Drive\led\led.h
 .\objects\main.o: .\Drive\Drive_DMA\Drive_DMA.h
+.\objects\main.o: .\Drive\Drive_DMATOUATR\Drive_DMATOUATR.h
 .\objects\main.o: .\Drive\Drive_GeneralTick\Drive_GeneralTick.h
 .\objects\main.o: .\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h
 .\objects\main.o: .\Drive\Drive_KEY\Drive_KEY.h
