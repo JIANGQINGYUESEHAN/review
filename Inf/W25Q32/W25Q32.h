@@ -19,5 +19,6 @@ void Inf_W25Q32_WritePage(uint8_t block, uint8_t sector, uint8_t page,
 
 void Inf_W25Q32_Read(uint8_t block, uint8_t sector, uint8_t page, uint8_t *data,
                      uint16_t len);
-
+void Inf_W25Q32_RadromPage(uint32_t addr, uint8_t *data, uint16_t len);
+void Inf_W25Q32_RadromRead(uint32_t addr, uint8_t *data, uint16_t len);
 #endif /* W25Q32_H__ */

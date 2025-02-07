@@ -12,6 +12,7 @@
 .\objects\main.o: .\Drive\led\led.h
 .\objects\main.o: .\Drive\Drive_DMA\Drive_DMA.h
 .\objects\main.o: .\Drive\Drive_DMATOUATR\Drive_DMATOUATR.h
+.\objects\main.o: .\Drive\Drive_FSMC\Drive_FSMC.h
 .\objects\main.o: .\Drive\Drive_GeneralTick\Drive_GeneralTick.h
 .\objects\main.o: .\Drive\Drive_GeneralTickTest\Drive_GeneralTickTest.h
 .\objects\main.o: .\Drive\Drive_KEY\Drive_KEY.h
@@ -22,5 +23,4 @@
 .\objects\main.o: .\Drive\Drive_I2C\Drive_I2C.h
 .\objects\main.o: .\Inf\W25Q32\W25Q32.h
 .\objects\main.o: .\Drive\Drive_SPI\Drive_SPI.h
-.\objects\main.o: .\Inf\W25Q32_HardWard\W25Q32_HardWard.h
-.\objects\main.o: .\Drive\Drive_SPI_HardWard\Drive_SPI_HardWare.h
+.\objects\main.o: C:\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h

@@ -18,12 +18,11 @@ Section Cross References
     startup_stm32f10x_hd.o(.text) refers to system_stm32f10x.o(i.SystemInit) for SystemInit
     startup_stm32f10x_hd.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     main.o(i.main) refers to drive_usart_interrupt.o(i.Drive_USART_Interrupt_Init) for Drive_USART_Interrupt_Init
-    main.o(i.main) refers to w25q32_hardward.o(i.Inf_W25Q32_HardWare_Init) for Inf_W25Q32_HardWare_Init
-    main.o(i.main) refers to w25q32_hardward.o(i.Inf_W25Q32_HardWare_ReadId) for Inf_W25Q32_HardWare_ReadId
+    main.o(i.main) refers to drive_fsmc.o(i.Drive_FSMC_Init) for Drive_FSMC_Init
     main.o(i.main) refers to printf5.o(i.__0printf$5) for __2printf
-    main.o(i.main) refers to w25q32_hardward.o(i.Inf_W25Q32_HardWare_EraseSector) for Inf_W25Q32_HardWare_EraseSector
-    main.o(i.main) refers to w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage) for Inf_W25Q32_HardWare_WritePage
-    main.o(i.main) refers to w25q32_hardward.o(i.Inf_W25Q32_HardWare_Read) for Inf_W25Q32_HardWare_Read
+    main.o(i.main) refers to main.o(.ARM.__AT_0x68000000) for v1
+    main.o(i.main) refers to main.o(.ARM.__AT_0x68000004) for v2
+    main.o(i.main) refers to main.o(.data) for i1
     delay.o(i.Delay_ms) refers to delay.o(i.Delay_us) for Delay_us
     delay.o(i.Delay_s) refers to delay.o(i.Delay_ms) for Delay_ms
     led.o(i.Driver_LED_Init) refers to led.o(i.Driver_LED_OffAll) for Driver_LED_OffAll
@@ -113,6 +112,16 @@ Section Cross References
     w25q32.o(i.Inf_W25Q32_EraseSector) refers to drive_spi.o(i.Drive_SPI_SwapByte) for Drive_SPI_SwapByte
     w25q32.o(i.Inf_W25Q32_EraseSector) refers to drive_spi.o(i.Drive_SPI_Stop) for Drive_SPI_Stop
     w25q32.o(i.Inf_W25Q32_Init) refers to drive_spi.o(i.Drive_SPI_Init) for Drive_SPI_Init
+    w25q32.o(i.Inf_W25Q32_RadromPage) refers to w25q32.o(i.Inf_W25Q32_WaiteNotBusy) for Inf_W25Q32_WaiteNotBusy
+    w25q32.o(i.Inf_W25Q32_RadromPage) refers to w25q32.o(i.Inf_W25q32_WriteEnable) for Inf_W25q32_WriteEnable
+    w25q32.o(i.Inf_W25Q32_RadromPage) refers to drive_spi.o(i.Drive_SPI_Start) for Drive_SPI_Start
+    w25q32.o(i.Inf_W25Q32_RadromPage) refers to drive_spi.o(i.Drive_SPI_SwapByte) for Drive_SPI_SwapByte
+    w25q32.o(i.Inf_W25Q32_RadromPage) refers to drive_spi.o(i.Drive_SPI_Stop) for Drive_SPI_Stop
+    w25q32.o(i.Inf_W25Q32_RadromRead) refers to w25q32.o(i.Inf_W25Q32_WaiteNotBusy) for Inf_W25Q32_WaiteNotBusy
+    w25q32.o(i.Inf_W25Q32_RadromRead) refers to w25q32.o(i.Inf_W25q32_WriteEnable) for Inf_W25q32_WriteEnable
+    w25q32.o(i.Inf_W25Q32_RadromRead) refers to drive_spi.o(i.Drive_SPI_Start) for Drive_SPI_Start
+    w25q32.o(i.Inf_W25Q32_RadromRead) refers to drive_spi.o(i.Drive_SPI_SwapByte) for Drive_SPI_SwapByte
+    w25q32.o(i.Inf_W25Q32_RadromRead) refers to drive_spi.o(i.Drive_SPI_Stop) for Drive_SPI_Stop
     w25q32.o(i.Inf_W25Q32_Read) refers to w25q32.o(i.Inf_W25Q32_WaiteNotBusy) for Inf_W25Q32_WaiteNotBusy
     w25q32.o(i.Inf_W25Q32_Read) refers to w25q32.o(i.Inf_W25q32_WriteEnable) for Inf_W25q32_WriteEnable
     w25q32.o(i.Inf_W25Q32_Read) refers to drive_spi.o(i.Drive_SPI_Start) for Drive_SPI_Start
@@ -163,6 +172,7 @@ Section Cross References
     w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage) refers to drive_spi_hardware.o(i.Drive_SPI_HardWare_Start) for Drive_SPI_HardWare_Start
     w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage) refers to drive_spi_hardware.o(i.Drive_SPI_HardWare_SwapByte) for Drive_SPI_HardWare_SwapByte
     w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage) refers to drive_spi_hardware.o(i.Drive_SPI_HardWare_Stop) for Drive_SPI_HardWare_Stop
+    drive_fsmc.o(i.Drive_FSMC_Init) refers to drive_fsmc.o(i.Drive_FSMC_GPIO_Init) for Drive_FSMC_GPIO_Init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000F) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$00000011) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry12b.o(.ARM.Collect$$$$0000000E) for __rt_lib_shutdown_fini
@@ -508,13 +518,26 @@ Removing Unused input sections from the image.
     Removing drive_spi.o(i.Drive_SPI_SwapByte), (104 bytes).
     Removing w25q32.o(i.Inf_W25Q32_EraseSector), (58 bytes).
     Removing w25q32.o(i.Inf_W25Q32_Init), (8 bytes).
+    Removing w25q32.o(i.Inf_W25Q32_RadromPage), (76 bytes).
+    Removing w25q32.o(i.Inf_W25Q32_RadromRead), (78 bytes).
     Removing w25q32.o(i.Inf_W25Q32_Read), (96 bytes).
     Removing w25q32.o(i.Inf_W25Q32_ReadId), (50 bytes).
     Removing w25q32.o(i.Inf_W25Q32_WaiteNotBusy), (34 bytes).
     Removing w25q32.o(i.Inf_W25Q32_WritePage), (94 bytes).
     Removing w25q32.o(i.Inf_W25q32_WiteDisanable), (18 bytes).
     Removing w25q32.o(i.Inf_W25q32_WriteEnable), (18 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_EraseSector), (58 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_Init), (8 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_Read), (96 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_ReadId), (56 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_WaiteNotBusy), (34 bytes).
     Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_WiteDisanable), (18 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_WriteEnable), (18 bytes).
+    Removing w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage), (94 bytes).
+    Removing drive_spi_hardware.o(i.Drive_SPI_HardWare_Init), (228 bytes).
+    Removing drive_spi_hardware.o(i.Drive_SPI_HardWare_Start), (20 bytes).
+    Removing drive_spi_hardware.o(i.Drive_SPI_HardWare_Stop), (20 bytes).
+    Removing drive_spi_hardware.o(i.Drive_SPI_HardWare_SwapByte), (48 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ddiv.o(.text), (222 bytes).
     Removing dfltui.o(.text), (26 bytes).
@@ -523,7 +546,7 @@ Removing Unused input sections from the image.
     Removing dfixul.o(.text), (48 bytes).
     Removing cdrcmple.o(.text), (48 bytes).
 
-86 unused section(s) (total 7620 bytes) removed from the image.
+99 unused section(s) (total 8454 bytes) removed from the image.
 
 ==============================================================================
 
@@ -533,37 +556,37 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -578,6 +601,7 @@ Image Symbol Table
     Drive\Drive_BaseTick\Drive_BaseTick.c    0x00000000   Number         0  drive_basetick.o ABSOLUTE
     Drive\Drive_DMATOUATR\Drive_DMATOUATR.c  0x00000000   Number         0  drive_dmatouatr.o ABSOLUTE
     Drive\Drive_DMA\Drive_DMA.c              0x00000000   Number         0  drive_dma.o ABSOLUTE
+    Drive\Drive_FSMC\Drive_FSMC.c            0x00000000   Number         0  drive_fsmc.o ABSOLUTE
     Drive\Drive_GeneralTick\Drive_GeneralTick.c 0x00000000   Number         0  drive_generaltick.o ABSOLUTE
     Drive\Drive_I2C\Drive_I2C.c              0x00000000   Number         0  drive_i2c.o ABSOLUTE
     Drive\Drive_I2C_HardWare\Drive_I2C_HardWare.c 0x00000000   Number         0  drive_i2c_hardware.o ABSOLUTE
@@ -624,47 +648,41 @@ Image Symbol Table
     i.DMA1_Channel4_IRQHandler               0x08000264   Section        0  drive_dmatouatr.o(i.DMA1_Channel4_IRQHandler)
     i.Delay_ms                               0x0800028c   Section        0  delay.o(i.Delay_ms)
     i.Delay_us                               0x080002a6   Section        0  delay.o(i.Delay_us)
-    i.Drive_SPI_HardWare_Init                0x080002dc   Section        0  drive_spi_hardware.o(i.Drive_SPI_HardWare_Init)
-    i.Drive_SPI_HardWare_Start               0x080003c0   Section        0  drive_spi_hardware.o(i.Drive_SPI_HardWare_Start)
-    i.Drive_SPI_HardWare_Stop                0x080003d4   Section        0  drive_spi_hardware.o(i.Drive_SPI_HardWare_Stop)
-    i.Drive_SPI_HardWare_SwapByte            0x080003e8   Section        0  drive_spi_hardware.o(i.Drive_SPI_HardWare_SwapByte)
-    i.Drive_SenierTick_Stop                  0x08000418   Section        0  drive_seniertick.o(i.Drive_SenierTick_Stop)
-    i.Drive_USART_Interrupt_Init             0x0800042c   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Init)
-    i.Drive_USART_Interrupt_Sendchar         0x08000568   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendchar)
-    i.Drive_USART_Interrupt_Sendstr          0x08000584   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendstr)
-    i.Drive_USART_Sendchar                   0x080005a0   Section        0  drive_usart.o(i.Drive_USART_Sendchar)
-    i.Driver_LED_Off                         0x080005bc   Section        0  led.o(i.Driver_LED_Off)
-    i.Driver_LED_On                          0x080005cc   Section        0  led.o(i.Driver_LED_On)
-    i.Driver_LED_Toggle                      0x080005dc   Section        0  led.o(i.Driver_LED_Toggle)
-    i.EXTI15_10_IRQHandler                   0x08000610   Section        0  drive_key.o(i.EXTI15_10_IRQHandler)
-    i.Inf_W25Q32_HardWare_EraseSector        0x08000640   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_EraseSector)
-    i.Inf_W25Q32_HardWare_Init               0x0800067a   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_Init)
-    i.Inf_W25Q32_HardWare_Read               0x08000682   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_Read)
-    i.Inf_W25Q32_HardWare_ReadId             0x080006e2   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_ReadId)
-    i.Inf_W25Q32_HardWare_WaiteNotBusy       0x0800071a   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WaiteNotBusy)
-    i.Inf_W25Q32_HardWare_WriteEnable        0x0800073c   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WriteEnable)
-    i.Inf_W25Q32_HardWare_WritePage          0x0800074e   Section        0  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage)
-    i.SetSysClock                            0x080007ac   Section        0  system_stm32f10x.o(i.SetSysClock)
-    SetSysClock                              0x080007ad   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
-    i.SetSysClockTo72                        0x080007b4   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
-    SetSysClockTo72                          0x080007b5   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
-    i.SystemInit                             0x08000894   Section        0  system_stm32f10x.o(i.SystemInit)
-    i.TIM1_UP_IRQHandler                     0x080008f4   Section        0  drive_seniertick.o(i.TIM1_UP_IRQHandler)
-    i.TIM7_IRQHandler                        0x08000918   Section        0  drive_basetick.o(i.TIM7_IRQHandler)
-    i.USART1_IRQHandler                      0x0800093c   Section        0  drive_usart_interrupt.o(i.USART1_IRQHandler)
-    i.__0printf$5                            0x0800099c   Section        0  printf5.o(i.__0printf$5)
-    i.__scatterload_copy                     0x080009bc   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x080009ca   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x080009cc   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x080009dc   Section        0  printf5.o(i._printf_core)
-    _printf_core                             0x080009dd   Thumb Code   660  printf5.o(i._printf_core)
-    i.fputc                                  0x08000c9c   Section        0  drive_usart_interrupt.o(i.fputc)
-    i.main                                   0x08000cac   Section        0  main.o(i.main)
-    .data                                    0x20000000   Section        1  drive_usart_interrupt.o(.data)
-    .data                                    0x20000001   Section        1  drive_dma.o(.data)
+    i.Drive_FSMC_GPIO_Init                   0x080002dc   Section        0  drive_fsmc.o(i.Drive_FSMC_GPIO_Init)
+    i.Drive_FSMC_Init                        0x080004a8   Section        0  drive_fsmc.o(i.Drive_FSMC_Init)
+    i.Drive_SenierTick_Stop                  0x08000540   Section        0  drive_seniertick.o(i.Drive_SenierTick_Stop)
+    i.Drive_USART_Interrupt_Init             0x08000554   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Init)
+    i.Drive_USART_Interrupt_Sendchar         0x08000690   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendchar)
+    i.Drive_USART_Interrupt_Sendstr          0x080006ac   Section        0  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendstr)
+    i.Drive_USART_Sendchar                   0x080006c8   Section        0  drive_usart.o(i.Drive_USART_Sendchar)
+    i.Driver_LED_Off                         0x080006e4   Section        0  led.o(i.Driver_LED_Off)
+    i.Driver_LED_On                          0x080006f4   Section        0  led.o(i.Driver_LED_On)
+    i.Driver_LED_Toggle                      0x08000704   Section        0  led.o(i.Driver_LED_Toggle)
+    i.EXTI15_10_IRQHandler                   0x08000738   Section        0  drive_key.o(i.EXTI15_10_IRQHandler)
+    i.SetSysClock                            0x08000768   Section        0  system_stm32f10x.o(i.SetSysClock)
+    SetSysClock                              0x08000769   Thumb Code     8  system_stm32f10x.o(i.SetSysClock)
+    i.SetSysClockTo72                        0x08000770   Section        0  system_stm32f10x.o(i.SetSysClockTo72)
+    SetSysClockTo72                          0x08000771   Thumb Code   214  system_stm32f10x.o(i.SetSysClockTo72)
+    i.SystemInit                             0x08000850   Section        0  system_stm32f10x.o(i.SystemInit)
+    i.TIM1_UP_IRQHandler                     0x080008b0   Section        0  drive_seniertick.o(i.TIM1_UP_IRQHandler)
+    i.TIM7_IRQHandler                        0x080008d4   Section        0  drive_basetick.o(i.TIM7_IRQHandler)
+    i.USART1_IRQHandler                      0x080008f8   Section        0  drive_usart_interrupt.o(i.USART1_IRQHandler)
+    i.__0printf$5                            0x08000958   Section        0  printf5.o(i.__0printf$5)
+    i.__scatterload_copy                     0x08000978   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08000986   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08000988   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x08000998   Section        0  printf5.o(i._printf_core)
+    _printf_core                             0x08000999   Thumb Code   660  printf5.o(i._printf_core)
+    i.fputc                                  0x08000c58   Section        0  drive_usart_interrupt.o(i.fputc)
+    i.main                                   0x08000c68   Section        0  main.o(i.main)
+    .data                                    0x20000000   Section        2  main.o(.data)
+    .data                                    0x20000002   Section        1  drive_usart_interrupt.o(.data)
+    .data                                    0x20000003   Section        1  drive_dma.o(.data)
     .data                                    0x20000004   Section        4  stdout.o(.data)
     .bss                                     0x20000008   Section      100  drive_usart_interrupt.o(.bss)
     STACK                                    0x20000070   Section     1024  startup_stm32f10x_hd.o(STACK)
+    .ARM.__AT_0x68000000                     0x68000000   Section        1  main.o(.ARM.__AT_0x68000000)
+    .ARM.__AT_0x68000004                     0x68000004   Section        1  main.o(.ARM.__AT_0x68000004)
 
     Global Symbols
 
@@ -807,45 +825,39 @@ Image Symbol Table
     DMA1_Channel4_IRQHandler                 0x08000265   Thumb Code    32  drive_dmatouatr.o(i.DMA1_Channel4_IRQHandler)
     Delay_ms                                 0x0800028d   Thumb Code    26  delay.o(i.Delay_ms)
     Delay_us                                 0x080002a7   Thumb Code    54  delay.o(i.Delay_us)
-    Drive_SPI_HardWare_Init                  0x080002dd   Thumb Code   204  drive_spi_hardware.o(i.Drive_SPI_HardWare_Init)
-    Drive_SPI_HardWare_Start                 0x080003c1   Thumb Code    14  drive_spi_hardware.o(i.Drive_SPI_HardWare_Start)
-    Drive_SPI_HardWare_Stop                  0x080003d5   Thumb Code    14  drive_spi_hardware.o(i.Drive_SPI_HardWare_Stop)
-    Drive_SPI_HardWare_SwapByte              0x080003e9   Thumb Code    42  drive_spi_hardware.o(i.Drive_SPI_HardWare_SwapByte)
-    Drive_SenierTick_Stop                    0x08000419   Thumb Code    14  drive_seniertick.o(i.Drive_SenierTick_Stop)
-    Drive_USART_Interrupt_Init               0x0800042d   Thumb Code   290  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Init)
-    Drive_USART_Interrupt_Sendchar           0x08000569   Thumb Code    22  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendchar)
-    Drive_USART_Interrupt_Sendstr            0x08000585   Thumb Code    26  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendstr)
-    Drive_USART_Sendchar                     0x080005a1   Thumb Code    22  drive_usart.o(i.Drive_USART_Sendchar)
-    Driver_LED_Off                           0x080005bd   Thumb Code    12  led.o(i.Driver_LED_Off)
-    Driver_LED_On                            0x080005cd   Thumb Code    12  led.o(i.Driver_LED_On)
-    Driver_LED_Toggle                        0x080005dd   Thumb Code    40  led.o(i.Driver_LED_Toggle)
-    EXTI15_10_IRQHandler                     0x08000611   Thumb Code    38  drive_key.o(i.EXTI15_10_IRQHandler)
-    Inf_W25Q32_HardWare_EraseSector          0x08000641   Thumb Code    58  w25q32_hardward.o(i.Inf_W25Q32_HardWare_EraseSector)
-    Inf_W25Q32_HardWare_Init                 0x0800067b   Thumb Code     8  w25q32_hardward.o(i.Inf_W25Q32_HardWare_Init)
-    Inf_W25Q32_HardWare_Read                 0x08000683   Thumb Code    96  w25q32_hardward.o(i.Inf_W25Q32_HardWare_Read)
-    Inf_W25Q32_HardWare_ReadId               0x080006e3   Thumb Code    56  w25q32_hardward.o(i.Inf_W25Q32_HardWare_ReadId)
-    Inf_W25Q32_HardWare_WaiteNotBusy         0x0800071b   Thumb Code    34  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WaiteNotBusy)
-    Inf_W25Q32_HardWare_WriteEnable          0x0800073d   Thumb Code    18  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WriteEnable)
-    Inf_W25Q32_HardWare_WritePage            0x0800074f   Thumb Code    94  w25q32_hardward.o(i.Inf_W25Q32_HardWare_WritePage)
-    SystemInit                               0x08000895   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
-    TIM1_UP_IRQHandler                       0x080008f5   Thumb Code    26  drive_seniertick.o(i.TIM1_UP_IRQHandler)
-    TIM7_IRQHandler                          0x08000919   Thumb Code    28  drive_basetick.o(i.TIM7_IRQHandler)
-    USART1_IRQHandler                        0x0800093d   Thumb Code    82  drive_usart_interrupt.o(i.USART1_IRQHandler)
-    __0printf$5                              0x0800099d   Thumb Code    22  printf5.o(i.__0printf$5)
-    __1printf$5                              0x0800099d   Thumb Code     0  printf5.o(i.__0printf$5)
-    __2printf                                0x0800099d   Thumb Code     0  printf5.o(i.__0printf$5)
-    __scatterload_copy                       0x080009bd   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x080009cb   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x080009cd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fputc                                    0x08000c9d   Thumb Code    16  drive_usart_interrupt.o(i.fputc)
-    main                                     0x08000cad   Thumb Code   104  main.o(i.main)
-    Region$$Table$$Base                      0x08000d44   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000d64   Number         0  anon$$obj.o(Region$$Table)
-    len                                      0x20000000   Data           1  drive_usart_interrupt.o(.data)
-    isTransmitFinished                       0x20000001   Data           1  drive_dma.o(.data)
+    Drive_FSMC_GPIO_Init                     0x080002dd   Thumb Code   394  drive_fsmc.o(i.Drive_FSMC_GPIO_Init)
+    Drive_FSMC_Init                          0x080004a9   Thumb Code   146  drive_fsmc.o(i.Drive_FSMC_Init)
+    Drive_SenierTick_Stop                    0x08000541   Thumb Code    14  drive_seniertick.o(i.Drive_SenierTick_Stop)
+    Drive_USART_Interrupt_Init               0x08000555   Thumb Code   290  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Init)
+    Drive_USART_Interrupt_Sendchar           0x08000691   Thumb Code    22  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendchar)
+    Drive_USART_Interrupt_Sendstr            0x080006ad   Thumb Code    26  drive_usart_interrupt.o(i.Drive_USART_Interrupt_Sendstr)
+    Drive_USART_Sendchar                     0x080006c9   Thumb Code    22  drive_usart.o(i.Drive_USART_Sendchar)
+    Driver_LED_Off                           0x080006e5   Thumb Code    12  led.o(i.Driver_LED_Off)
+    Driver_LED_On                            0x080006f5   Thumb Code    12  led.o(i.Driver_LED_On)
+    Driver_LED_Toggle                        0x08000705   Thumb Code    40  led.o(i.Driver_LED_Toggle)
+    EXTI15_10_IRQHandler                     0x08000739   Thumb Code    38  drive_key.o(i.EXTI15_10_IRQHandler)
+    SystemInit                               0x08000851   Thumb Code    78  system_stm32f10x.o(i.SystemInit)
+    TIM1_UP_IRQHandler                       0x080008b1   Thumb Code    26  drive_seniertick.o(i.TIM1_UP_IRQHandler)
+    TIM7_IRQHandler                          0x080008d5   Thumb Code    28  drive_basetick.o(i.TIM7_IRQHandler)
+    USART1_IRQHandler                        0x080008f9   Thumb Code    82  drive_usart_interrupt.o(i.USART1_IRQHandler)
+    __0printf$5                              0x08000959   Thumb Code    22  printf5.o(i.__0printf$5)
+    __1printf$5                              0x08000959   Thumb Code     0  printf5.o(i.__0printf$5)
+    __2printf                                0x08000959   Thumb Code     0  printf5.o(i.__0printf$5)
+    __scatterload_copy                       0x08000979   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08000987   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08000989   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    fputc                                    0x08000c59   Thumb Code    16  drive_usart_interrupt.o(i.fputc)
+    main                                     0x08000c69   Thumb Code   116  main.o(i.main)
+    Region$$Table$$Base                      0x08000d38   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000d58   Number         0  anon$$obj.o(Region$$Table)
+    i1                                       0x20000000   Data           2  main.o(.data)
+    len                                      0x20000002   Data           1  drive_usart_interrupt.o(.data)
+    isTransmitFinished                       0x20000003   Data           1  drive_dma.o(.data)
     __stdout                                 0x20000004   Data           4  stdout.o(.data)
     buffa                                    0x20000008   Data         100  drive_usart_interrupt.o(.bss)
     __initial_sp                             0x20000470   Data           0  startup_stm32f10x_hd.o(STACK)
+    v1                                       0x68000000   Data           1  main.o(.ARM.__AT_0x68000000)
+    v2                                       0x68000004   Data           1  main.o(.ARM.__AT_0x68000004)
 
 
 
@@ -855,89 +867,100 @@ Memory Map of the image
 
   Image Entry point : 0x08000149
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000d6c, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000d60, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000d64, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000d58, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x00000130   Data   RO           60    RESET               startup_stm32f10x_hd.o
-    0x08000130   0x08000130   0x00000000   Code   RO          982  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000130   0x08000130   0x00000004   Code   RO         1252    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08000134   0x08000134   0x00000004   Code   RO         1255    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000138   0x08000138   0x00000000   Code   RO         1257    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000138   0x08000138   0x00000000   Code   RO         1259    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000138   0x08000138   0x00000008   Code   RO         1260    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000140   0x08000140   0x00000004   Code   RO         1267    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
-    0x08000144   0x08000144   0x00000000   Code   RO         1262    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
-    0x08000144   0x08000144   0x00000000   Code   RO         1264    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
-    0x08000144   0x08000144   0x00000004   Code   RO         1253    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000130   0x08000130   0x00000000   Code   RO         1020  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000130   0x08000130   0x00000004   Code   RO         1290    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08000134   0x08000134   0x00000004   Code   RO         1293    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000138   0x08000138   0x00000000   Code   RO         1295    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000138   0x08000138   0x00000000   Code   RO         1297    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000138   0x08000138   0x00000008   Code   RO         1298    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000140   0x08000140   0x00000004   Code   RO         1305    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         1300    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
+    0x08000144   0x08000144   0x00000000   Code   RO         1302    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
+    0x08000144   0x08000144   0x00000004   Code   RO         1291    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08000148   0x08000148   0x00000024   Code   RO           61  * .text               startup_stm32f10x_hd.o
-    0x0800016c   0x0800016c   0x00000062   Code   RO         1271    .text               mc_w.l(uldiv.o)
+    0x0800016c   0x0800016c   0x00000062   Code   RO         1309    .text               mc_w.l(uldiv.o)
     0x080001ce   0x080001ce   0x00000002   PAD
-    0x080001d0   0x080001d0   0x00000024   Code   RO         1282    .text               mc_w.l(init.o)
-    0x080001f4   0x080001f4   0x0000001e   Code   RO         1284    .text               mc_w.l(llshl.o)
-    0x08000212   0x08000212   0x00000020   Code   RO         1286    .text               mc_w.l(llushr.o)
+    0x080001d0   0x080001d0   0x00000024   Code   RO         1320    .text               mc_w.l(init.o)
+    0x080001f4   0x080001f4   0x0000001e   Code   RO         1322    .text               mc_w.l(llshl.o)
+    0x08000212   0x08000212   0x00000020   Code   RO         1324    .text               mc_w.l(llushr.o)
     0x08000232   0x08000232   0x00000002   PAD
-    0x08000234   0x08000234   0x00000030   Code   RO          690    i.DMA1_Channel1_IRQHandler  drive_dma.o
-    0x08000264   0x08000264   0x00000028   Code   RO          720    i.DMA1_Channel4_IRQHandler  drive_dmatouatr.o
-    0x0800028c   0x0800028c   0x0000001a   Code   RO          152    i.Delay_ms          delay.o
-    0x080002a6   0x080002a6   0x00000036   Code   RO          154    i.Delay_us          delay.o
-    0x080002dc   0x080002dc   0x000000e4   Code   RO          949    i.Drive_SPI_HardWare_Init  drive_spi_hardware.o
-    0x080003c0   0x080003c0   0x00000014   Code   RO          950    i.Drive_SPI_HardWare_Start  drive_spi_hardware.o
-    0x080003d4   0x080003d4   0x00000014   Code   RO          951    i.Drive_SPI_HardWare_Stop  drive_spi_hardware.o
-    0x080003e8   0x080003e8   0x00000030   Code   RO          952    i.Drive_SPI_HardWare_SwapByte  drive_spi_hardware.o
-    0x08000418   0x08000418   0x00000014   Code   RO          655    i.Drive_SenierTick_Stop  drive_seniertick.o
-    0x0800042c   0x0800042c   0x0000013c   Code   RO          296    i.Drive_USART_Interrupt_Init  drive_usart_interrupt.o
-    0x08000568   0x08000568   0x0000001c   Code   RO          299    i.Drive_USART_Interrupt_Sendchar  drive_usart_interrupt.o
-    0x08000584   0x08000584   0x0000001a   Code   RO          300    i.Drive_USART_Interrupt_Sendstr  drive_usart_interrupt.o
-    0x0800059e   0x0800059e   0x00000002   PAD
-    0x080005a0   0x080005a0   0x0000001c   Code   RO          255    i.Drive_USART_Sendchar  drive_usart.o
-    0x080005bc   0x080005bc   0x00000010   Code   RO          177    i.Driver_LED_Off    led.o
-    0x080005cc   0x080005cc   0x00000010   Code   RO          179    i.Driver_LED_On     led.o
-    0x080005dc   0x080005dc   0x00000034   Code   RO          181    i.Driver_LED_Toggle  led.o
-    0x08000610   0x08000610   0x00000030   Code   RO          227    i.EXTI15_10_IRQHandler  drive_key.o
-    0x08000640   0x08000640   0x0000003a   Code   RO          895    i.Inf_W25Q32_HardWare_EraseSector  w25q32_hardward.o
-    0x0800067a   0x0800067a   0x00000008   Code   RO          896    i.Inf_W25Q32_HardWare_Init  w25q32_hardward.o
-    0x08000682   0x08000682   0x00000060   Code   RO          897    i.Inf_W25Q32_HardWare_Read  w25q32_hardward.o
-    0x080006e2   0x080006e2   0x00000038   Code   RO          898    i.Inf_W25Q32_HardWare_ReadId  w25q32_hardward.o
-    0x0800071a   0x0800071a   0x00000022   Code   RO          899    i.Inf_W25Q32_HardWare_WaiteNotBusy  w25q32_hardward.o
-    0x0800073c   0x0800073c   0x00000012   Code   RO          901    i.Inf_W25Q32_HardWare_WriteEnable  w25q32_hardward.o
-    0x0800074e   0x0800074e   0x0000005e   Code   RO          902    i.Inf_W25Q32_HardWare_WritePage  w25q32_hardward.o
-    0x080007ac   0x080007ac   0x00000008   Code   RO           17    i.SetSysClock       system_stm32f10x.o
-    0x080007b4   0x080007b4   0x000000e0   Code   RO           18    i.SetSysClockTo72   system_stm32f10x.o
-    0x08000894   0x08000894   0x00000060   Code   RO           20    i.SystemInit        system_stm32f10x.o
-    0x080008f4   0x080008f4   0x00000024   Code   RO          656    i.TIM1_UP_IRQHandler  drive_seniertick.o
-    0x08000918   0x08000918   0x00000024   Code   RO          551    i.TIM7_IRQHandler   drive_basetick.o
-    0x0800093c   0x0800093c   0x00000060   Code   RO          301    i.USART1_IRQHandler  drive_usart_interrupt.o
-    0x0800099c   0x0800099c   0x00000020   Code   RO         1118    i.__0printf$5       mc_w.l(printf5.o)
-    0x080009bc   0x080009bc   0x0000000e   Code   RO         1292    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x080009ca   0x080009ca   0x00000002   Code   RO         1293    i.__scatterload_null  mc_w.l(handlers.o)
-    0x080009cc   0x080009cc   0x0000000e   Code   RO         1294    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x080009da   0x080009da   0x00000002   PAD
-    0x080009dc   0x080009dc   0x000002c0   Code   RO         1125    i._printf_core      mc_w.l(printf5.o)
-    0x08000c9c   0x08000c9c   0x00000010   Code   RO          302    i.fputc             drive_usart_interrupt.o
-    0x08000cac   0x08000cac   0x00000098   Code   RO           65    i.main              main.o
-    0x08000d44   0x08000d44   0x00000020   Data   RO         1290    Region$$Table       anon$$obj.o
+    0x08000234   0x08000234   0x00000030   Code   RO          695    i.DMA1_Channel1_IRQHandler  drive_dma.o
+    0x08000264   0x08000264   0x00000028   Code   RO          725    i.DMA1_Channel4_IRQHandler  drive_dmatouatr.o
+    0x0800028c   0x0800028c   0x0000001a   Code   RO          157    i.Delay_ms          delay.o
+    0x080002a6   0x080002a6   0x00000036   Code   RO          159    i.Delay_us          delay.o
+    0x080002dc   0x080002dc   0x000001cc   Code   RO          999    i.Drive_FSMC_GPIO_Init  drive_fsmc.o
+    0x080004a8   0x080004a8   0x00000098   Code   RO         1000    i.Drive_FSMC_Init   drive_fsmc.o
+    0x08000540   0x08000540   0x00000014   Code   RO          660    i.Drive_SenierTick_Stop  drive_seniertick.o
+    0x08000554   0x08000554   0x0000013c   Code   RO          301    i.Drive_USART_Interrupt_Init  drive_usart_interrupt.o
+    0x08000690   0x08000690   0x0000001c   Code   RO          304    i.Drive_USART_Interrupt_Sendchar  drive_usart_interrupt.o
+    0x080006ac   0x080006ac   0x0000001a   Code   RO          305    i.Drive_USART_Interrupt_Sendstr  drive_usart_interrupt.o
+    0x080006c6   0x080006c6   0x00000002   PAD
+    0x080006c8   0x080006c8   0x0000001c   Code   RO          260    i.Drive_USART_Sendchar  drive_usart.o
+    0x080006e4   0x080006e4   0x00000010   Code   RO          182    i.Driver_LED_Off    led.o
+    0x080006f4   0x080006f4   0x00000010   Code   RO          184    i.Driver_LED_On     led.o
+    0x08000704   0x08000704   0x00000034   Code   RO          186    i.Driver_LED_Toggle  led.o
+    0x08000738   0x08000738   0x00000030   Code   RO          232    i.EXTI15_10_IRQHandler  drive_key.o
+    0x08000768   0x08000768   0x00000008   Code   RO           17    i.SetSysClock       system_stm32f10x.o
+    0x08000770   0x08000770   0x000000e0   Code   RO           18    i.SetSysClockTo72   system_stm32f10x.o
+    0x08000850   0x08000850   0x00000060   Code   RO           20    i.SystemInit        system_stm32f10x.o
+    0x080008b0   0x080008b0   0x00000024   Code   RO          661    i.TIM1_UP_IRQHandler  drive_seniertick.o
+    0x080008d4   0x080008d4   0x00000024   Code   RO          556    i.TIM7_IRQHandler   drive_basetick.o
+    0x080008f8   0x080008f8   0x00000060   Code   RO          306    i.USART1_IRQHandler  drive_usart_interrupt.o
+    0x08000958   0x08000958   0x00000020   Code   RO         1156    i.__0printf$5       mc_w.l(printf5.o)
+    0x08000978   0x08000978   0x0000000e   Code   RO         1330    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08000986   0x08000986   0x00000002   Code   RO         1331    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08000988   0x08000988   0x0000000e   Code   RO         1332    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08000996   0x08000996   0x00000002   PAD
+    0x08000998   0x08000998   0x000002c0   Code   RO         1163    i._printf_core      mc_w.l(printf5.o)
+    0x08000c58   0x08000c58   0x00000010   Code   RO          307    i.fputc             drive_usart_interrupt.o
+    0x08000c68   0x08000c68   0x000000d0   Code   RO           65    i.main              main.o
+    0x08000d38   0x08000d38   0x00000020   Data   RO         1328    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000d64, Size: 0x00000008, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000d58, Size: 0x00000008, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08000d64   0x00000001   Data   RW          304    .data               drive_usart_interrupt.o
-    0x20000001   0x08000d65   0x00000001   Data   RW          693    .data               drive_dma.o
-    0x20000002   0x08000d66   0x00000002   PAD
-    0x20000004   0x08000d68   0x00000004   Data   RW         1268    .data               mc_w.l(stdout.o)
+    0x20000000   0x08000d58   0x00000002   Data   RW           68    .data               main.o
+    0x20000002   0x08000d5a   0x00000001   Data   RW          309    .data               drive_usart_interrupt.o
+    0x20000003   0x08000d5b   0x00000001   Data   RW          698    .data               drive_dma.o
+    0x20000004   0x08000d5c   0x00000004   Data   RW         1306    .data               mc_w.l(stdout.o)
 
 
-    Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x08000d6c, Size: 0x00000468, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x08000d60, Size: 0x00000468, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008        -       0x00000064   Zero   RW          303    .bss                drive_usart_interrupt.o
-    0x2000006c   0x08000d6c   0x00000004   PAD
+    0x20000008        -       0x00000064   Zero   RW          308    .bss                drive_usart_interrupt.o
+    0x2000006c   0x08000d60   0x00000004   PAD
     0x20000070        -       0x00000400   Zero   RW           58    STACK               startup_stm32f10x_hd.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x68000000 (Base: 0x68000000, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x68000000 (Exec base: 0x68000000, Load base: 0x68000000, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x68000000        -       0x00000001   Zero   RW           66    .ARM.__AT_0x68000000  main.o
+
+
+
+  Load Region LR$$.ARM.__AT_0x68000004 (Base: 0x68000004, Size: 0x00000000, Max: 0x00000004, ABSOLUTE)
+
+    Execution Region ER$$.ARM.__AT_0x68000004 (Exec base: 0x68000004, Load base: 0x68000004, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, UNINIT)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x68000004        -       0x00000001   Zero   RW           67    .ARM.__AT_0x68000004  main.o
 
 
 ==============================================================================
@@ -952,21 +975,20 @@ Image component sizes
         36          8          0          0          0        450   drive_basetick.o
         48          8          0          1          0        644   drive_dma.o
         40          8          0          0          0        475   drive_dmatouatr.o
+       612         72          0          0          0       1021   drive_fsmc.o
         48         10          0          0          0      15466   drive_key.o
         56         16          0          0          0        905   drive_seniertick.o
-       316         42          0          0          0       1981   drive_spi_hardware.o
         28          6          0          0          0        459   drive_usart.o
        482         46          0          1        100       5102   drive_usart_interrupt.o
         84         20          0          0          0       1289   led.o
-       152         48          0          0          0     205027   main.o
+       208         92          0          2          2     205198   main.o
         36          8        304          0       1024        748   startup_stm32f10x_hd.o
        328         28          0          0          0       1797   system_stm32f10x.o
-       364          0          0          0          0       4682   w25q32_hardward.o
 
     ----------------------------------------------------------------------
-      2100        248        336          4       1128     244431   Object Totals
+      2088        322        336          4       1136     238960   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         2          0          0          2          4          0   (incl. Padding)
+         2          0          0          0         10          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1009,15 +1031,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3092        318        336          8       1128     243347   Grand Totals
-      3092        318        336          8       1128     243347   ELF Image Totals
-      3092        318        336          8          0          0   ROM Totals
+      3080        392        336          8       1136     238344   Grand Totals
+      3080        392        336          8       1136     238344   ELF Image Totals
+      3080        392        336          8          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3428 (   3.35kB)
-    Total RW  Size (RW Data + ZI Data)              1136 (   1.11kB)
-    Total ROM Size (Code + RO Data + RW Data)       3436 (   3.36kB)
+    Total RO  Size (Code + RO Data)                 3416 (   3.34kB)
+    Total RW  Size (RW Data + ZI Data)              1144 (   1.12kB)
+    Total ROM Size (Code + RO Data + RW Data)       3424 (   3.34kB)
 
 ==============================================================================
 

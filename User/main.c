@@ -5,6 +5,7 @@
 #include "Drive_BaseTick.h"
 #include "Drive_DMA.h"
 #include "Drive_DMATOUATR.h"
+#include "Drive_FSMC.h"
 #include "Drive_GeneralTick.h"
 #include "Drive_GeneralTickTest.h"
 #include "Drive_KEY.h"
@@ -15,6 +16,7 @@
 #include "Inf_E2PROM.h"
 #include "W25Q32.h"
 #include "led.h"
+#include "string.h"
 // int main() {
 //     Driver_LED_Init();
 //     uint8_t dir = 1;
@@ -241,27 +243,91 @@
 //     }
 // }
 
-#include "W25Q32_HardWard.h"
+// #include "W25Q32_HardWard.h"
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Inf_W25Q32_HardWare_Init();
+
+//     /* 读取id测试是否正常 */
+//     uint8_t mid = 0;
+//     uint16_t did = 0;
+//     Inf_W25Q32_HardWare_ReadId(&mid, &did);
+//     printf("1");
+//     printf("mid=0x%X, did=0x%X\r\n", mid, did);
+
+//     /* 先擦除 */;
+//     Inf_W25Q32_HardWare_EraseSector(0, 0);
+
+//     Inf_W25Q32_HardWare_WritePage(0, 0, 0, "12345678", 8);
+//     uint8_t buff[10] = {0};
+//     Inf_W25Q32_HardWare_Read(0, 0, 0, buff, 8);
+
+//     printf("%s\r\n", buff);
+
+//     while (1) {
+//     }
+// }
+
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Inf_W25Q32_Init();
+
+//     /* 读取id测试是否正常 */
+//     uint8_t mid = 0;
+//     uint16_t did = 0;
+//     Inf_W25Q32_ReadId(&mid, &did);
+//     printf("mid=0x%X, did=0x%X\r\n", mid, did);
+//     /* 先设置26个字符串 */
+//     uint8_t a2z[26] = {0};
+//     uint8_t buffe[260] = {0};
+//     uint8_t str[260] = {0};
+//     for (uint8_t i = 0; i < 26; i++) {
+//         a2z[i] = 'a' + i;
+//     }
+
+//     for (uint8_t i = 0; i < 10; i++) {
+//         strcat((char *)buffe, (char *)a2z);
+//     }
+//     uint16_t len = strlen((char *)buffe);
+//     uint32_t addr = 0x32f680;
+//     /* 然后计算要写入的长度 */
+//     uint8_t size1 = 0xff - (addr & 0xff) + 1;
+//     uint8_t size2 = len - size1;
+//     Inf_W25Q32_RadromPage(addr, buffe, size1);
+//     Inf_W25Q32_WritePage(0x32, 0x0f, 0x07, buffe + size1, size2);
+//     Inf_W25Q32_RadromRead(addr, str, len);
+//     printf("str=%s", str);
+//     while (1) {
+//     }
+// }
+#define I4 (uint8_t *)0x68000010
+/* 定义一个变量,存储到外置的SRAM中 */;
+/* 方式1: 使用关键词 __attribute__  at*/
+uint8_t v1 __attribute__((at(0x68000000)));
+uint8_t v2 __attribute__((at(0x68000004)));
+uint16_t i1 = 20;
+
 int main() {
     Drive_USART_Interrupt_Init();
-    Inf_W25Q32_HardWare_Init();
+    Drive_FSMC_Init();
+    uint8_t v3 __attribute__((at(0x68000007)));
+    v1 = 200;
+    v2 = 100;
+    v3 = 11;
 
-    /* 读取id测试是否正常 */
-    uint8_t mid = 0;
-    uint16_t did = 0;
-    Inf_W25Q32_HardWare_ReadId(&mid, &did);
-    printf("1");
-    printf("mid=0x%X, did=0x%X\r\n", mid, did);
+    /* 方式2: 定义指针 */
+    *(uint8_t *)0x68000001 = 30;
+    printf("0x68000001=%d\r\n", *(uint8_t *)0x68000001);
 
-    /* 先擦除 */;
-    Inf_W25Q32_HardWare_EraseSector(0, 0);
+    printf("v1=%p, %d\r\n", &v1, v1);
+    printf("v2=%p, %d\r\n", &v2, v2);
+    printf("i1=%p, %d\r\n", &i1, i1);
+    printf("v3=%p, %d\r\n", &v3, v3);
 
-    Inf_W25Q32_HardWare_WritePage(0, 0, 0, "12345678", 8);
-    uint8_t buff[10] = {0};
-    Inf_W25Q32_HardWare_Read(0, 0, 0, buff, 8);
-
-    printf("%s\r\n", buff);
+    *I4 = 22;
+    printf("I4=%p, %d\r\n", I4, *I4);
 
     while (1) {
+        /* code */
     }
 }

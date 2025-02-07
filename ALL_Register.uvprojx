@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_DMATOUATR;.\Drive\Drive_DMA;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_ADC;.\Drive\Drive_ADC_DMA;.\Drive\Drive_SPI;.\Inf\W25Q32;.\Inf\W25Q32_HardWard;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_SPI_HardWard</IncludePath>
+              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_DMATOUATR;.\Drive\Drive_DMA;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_ADC;.\Drive\Drive_ADC_DMA;.\Drive\Drive_SPI;.\Inf\W25Q32;.\Inf\W25Q32_HardWard;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_SPI_HardWard;.\Drive\Drive_FSMC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -718,6 +718,21 @@
               <FileName>Drive_SPI_HardWare.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Drive_SPI_HardWard\Drive_SPI_HardWare.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drive_FSMC</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_FSMC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_FSMC\Drive_FSMC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_FSMC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_FSMC\Drive_FSMC.h</FilePath>
             </File>
           </Files>
         </Group>
