@@ -20,3 +20,7 @@
 .\objects\main.o: .\Drive\Drive_USART\Drive_USART.h
 .\objects\main.o: .\Inf\E2PROM\Inf_E2PROM.h
 .\objects\main.o: .\Drive\Drive_I2C\Drive_I2C.h
+.\objects\main.o: .\Inf\W25Q32\W25Q32.h
+.\objects\main.o: .\Drive\Drive_SPI\Drive_SPI.h
+.\objects\main.o: .\Inf\W25Q32_HardWard\W25Q32_HardWard.h
+.\objects\main.o: .\Drive\Drive_SPI_HardWard\Drive_SPI_HardWare.h

@@ -24,6 +24,9 @@
                 "d:\\window\\ALL_Register\\Drive\\Drive_ADC",
                 "d:\\window\\ALL_Register\\Drive\\Drive_ADC_DMA",
                 "d:\\window\\ALL_Register\\Drive\\Drive_SPI",
+                "d:\\window\\ALL_Register\\Inf\\W25Q32",
+                "d:\\window\\ALL_Register\\Inf\\W25Q32_HardWard",
+                "d:\\window\\ALL_Register\\Drive\\Drive_SPI_HardWard",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw"
             ],

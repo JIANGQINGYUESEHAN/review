@@ -13,6 +13,7 @@
 #include "Drive_USART.h"
 #include "Drive_USART_Interrupt.h"
 #include "Inf_E2PROM.h"
+#include "W25Q32.h"
 #include "led.h"
 // int main() {
 //     Driver_LED_Init();
@@ -203,16 +204,64 @@
 //     }
 // }
 
-uint16_t data[2] = {0};
+// uint16_t data[2] = {0};
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     printf("DMA实验: RAM->USART...\r\n");
+//     Driver_ADC1_DMA_Init();
+//     Driver_ADC1_DMA_Start((uint32_t)data, 2);
+//     while (1) {
+//         printf("滑动变阻器=%.2f, 电源电压=%.2f\r\n", data[0] * 3.3 / 4095,
+//                data[1] * 3.3 / 4095);
+
+//         Delay_s(1);
+//     }
+// }
+
+// int main() {
+//     Drive_USART_Interrupt_Init();
+//     Inf_W25Q32_Init();
+
+//     /* 读取id测试是否正常 */
+//     uint8_t mid = 0;
+//     uint16_t did = 0;
+//     Inf_W25Q32_ReadId(&mid, &did);
+//     printf("mid=0x%X, did=0x%X\r\n", mid, did);
+
+//     /* 先擦除 */;
+//     Inf_W25Q32_EraseSector(0, 0);
+
+//     Inf_W25Q32_WritePage(0, 0, 0, "12345678", 8);
+//     uint8_t buff[10] = {0};
+//     Inf_W25Q32_Read(0, 0, 0, buff, 8);
+
+//     printf("%s\r\n", buff);
+
+//     while (1) {
+//     }
+// }
+
+#include "W25Q32_HardWard.h"
 int main() {
     Drive_USART_Interrupt_Init();
-    printf("DMA实验: RAM->USART...\r\n");
-    Driver_ADC1_DMA_Init();
-    Driver_ADC1_DMA_Start((uint32_t)data, 2);
-    while (1) {
-        printf("滑动变阻器=%.2f, 电源电压=%.2f\r\n", data[0] * 3.3 / 4095,
-               data[1] * 3.3 / 4095);
+    Inf_W25Q32_HardWare_Init();
 
-        Delay_s(1);
+    /* 读取id测试是否正常 */
+    uint8_t mid = 0;
+    uint16_t did = 0;
+    Inf_W25Q32_HardWare_ReadId(&mid, &did);
+    printf("1");
+    printf("mid=0x%X, did=0x%X\r\n", mid, did);
+
+    /* 先擦除 */;
+    Inf_W25Q32_HardWare_EraseSector(0, 0);
+
+    Inf_W25Q32_HardWare_WritePage(0, 0, 0, "12345678", 8);
+    uint8_t buff[10] = {0};
+    Inf_W25Q32_HardWare_Read(0, 0, 0, buff, 8);
+
+    printf("%s\r\n", buff);
+
+    while (1) {
     }
 }

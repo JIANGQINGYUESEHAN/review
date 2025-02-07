@@ -17,5 +17,5 @@
 void Drive_SPI_Init(void);
 void Drive_SPI_Start(void);
 void Drive_SPI_Stop(void);
-uint8_t Driver_SPI_SwapByte(uint8_t byte);
+uint8_t Drive_SPI_SwapByte(uint8_t byte);
 #endif /* DRIVE_SPI_H__ */

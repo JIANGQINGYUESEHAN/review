@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_DMATOUATR;.\Drive\Drive_DMA;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_ADC;.\Drive\Drive_ADC_DMA;.\Drive\Drive_SPI</IncludePath>
+              <IncludePath>.\Start;.\User;.\Drive;.\Drive\led;.\Drive\Drive_KEY;.\Drive\Drive_USART;.\Drive\Drive_USART_Interrupt;.\Drive\Drive_I2C;.\Inf\E2PROM;.\Inf\E2PROM_HardWare;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_BaseTick;.\Drive\Drive_GeneralTick;.\Drive\Drive_GeneralTickTest;.\Drive\Drive_DMATOUATR;.\Drive\Drive_DMA;.\Drive\Drive_MesureTick;.\Drive\Drive_SenierTick;.\Drive\Drive_ADC;.\Drive\Drive_ADC_DMA;.\Drive\Drive_SPI;.\Inf\W25Q32;.\Inf\W25Q32_HardWard;.\Drive\Drive_I2C_HardWare;.\Drive\Drive_SPI_HardWard</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -673,6 +673,51 @@
               <FileName>Drive_SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Drive\Drive_SPI\Drive_SPI.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>W25Q32</GroupName>
+          <Files>
+            <File>
+              <FileName>W25Q32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Inf\W25Q32\W25Q32.c</FilePath>
+            </File>
+            <File>
+              <FileName>W25Q32.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Inf\W25Q32\W25Q32.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>W25Q32_HardWard</GroupName>
+          <Files>
+            <File>
+              <FileName>W25Q32_HardWard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Inf\W25Q32_HardWard\W25Q32_HardWard.c</FilePath>
+            </File>
+            <File>
+              <FileName>W25Q32_HardWard.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Inf\W25Q32_HardWard\W25Q32_HardWard.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SPI_HardWard</GroupName>
+          <Files>
+            <File>
+              <FileName>Drive_SPI_HardWare.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\Drive_SPI_HardWard\Drive_SPI_HardWare.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drive_SPI_HardWare.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drive\Drive_SPI_HardWard\Drive_SPI_HardWare.h</FilePath>
             </File>
           </Files>
         </Group>
